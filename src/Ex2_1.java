@@ -18,6 +18,7 @@ public class Ex2_1{
     *  in each file, the function returns a string array of the files names.
      **/
     public static String[] createTextFiles(int n, int seed, int bound){
+
         String[] files = new String[n];
         Random rand = new Random(seed);
 
