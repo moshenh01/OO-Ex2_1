@@ -148,10 +148,10 @@ _method 2:(Instant.now())_
    as we can see we did 3 tests, the first was low num of files (10) and we increase the bounds 3 times.
    
    we found:
-   * When the number of bounds is close to the num of files, we see in general that the ordre is threadpoll
+   * When the number of bounds is close to the num of files, we see in general that the ordre is threadpool
     is the fastest after that thread and last Normal. the reason to it is that creating and destroying threads has a high CPU       usage, so when you need to perform lots of small, simple tasks concurrently the overhead of creating your own threads can       take up a significant portion of the CPU cycles and severely affect the final response time. This is especially true in         stress conditions where executing multiple threads can push CPU to 100% and most of the time would be wasted in context         switching (swapping threads in and out of the processor along with their memory).
     the thread pool however work's a bit diffrent, where a number of threads are created ahead of time and kept around to pick       up any work items you give them to do, without the overhead associated with creating your own threads.
-    So when we creates a small numbers of file and a much higher number of lines we can see the diffrenes between the threadpool     to the make a thread for every file. (cuz we still makeing a small num of thread anyway)
+    So when we creates a small numbers of file and a much higher number of lines we can see the difference between the threadpool     to the make a thread for every file. (cuz we still makeing a small num of thread anyway)
    * But if the numbers of line is small comper to the files we can see that even the normal sometimes its the better choice,
      if we looking at threadpool vs thread then theard wins because we got a limited number of thread (4000 in my pool)
      when the queue of task is getting close to the number of thread in pool because the number of lines is small a lot of the        thraed working in parallel and its delaying the pool.
@@ -178,9 +178,9 @@ _method 2:(Instant.now())_
 
 ## Help
 
-Qwick way to delet file.
+Qwick way to delete file.
 * make sure you are in the files directory.
-* Then open terminal and use the nexxt comend:
+* Then open terminal and use the next command:
 ```
 rm *.txt
 ```
@@ -188,6 +188,7 @@ rm *.txt
 ## Authors
 
 @Moshe nahshon
+@Yogev Ofir
 
 ## Version History
 
