@@ -2,16 +2,16 @@
 
 ## Description
 
-in this project we can see the diffrent in runing a progrem using a naormal run,threads and thread pool.
-we will show the time difrence between counting lines in a groop of files that we creats, and print the times 
-for each function (normal,thread,poolthread).
+in this project we can see the difference in runing a progrem using a normal run,threads and thread pool.
+we will show the time difference between counting lines in a group of files that we creates, and print the times 
+for each function (normal,thread,threadpool).
 
 
 ## Time Research
 
-### The Time's Resulte.
+### The Time's Result.
 
-First test [files = 10,cead = 10,bound = 100}
+First test [files = 10,sead = 10,bound = 100}
 
 
 
@@ -147,7 +147,7 @@ _method 2:(Instant.now())_
 
    as we can see we did 3 tests, the first was low num of files (10) and we increase the bounds 3 times.
    
-   we find:
+   we found:
    * When the number of bounds is close to the num of files, we see in general that the ordre is threadpoll
     is the fastest after that thread and last Normal. the reason to it is that creating and destroying threads has a high CPU       usage, so when you need to perform lots of small, simple tasks concurrently the overhead of creating your own threads can       take up a significant portion of the CPU cycles and severely affect the final response time. This is especially true in         stress conditions where executing multiple threads can push CPU to 100% and most of the time would be wasted in context         switching (swapping threads in and out of the processor along with their memory).
     the thread pool however work's a bit diffrent, where a number of threads are created ahead of time and kept around to pick       up any work items you give them to do, without the overhead associated with creating your own threads.
