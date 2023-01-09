@@ -1,13 +1,10 @@
-
 import java.io.FileInputStream;
 import java.io.FileWriter;
-import java.util.Random;
-import java.util.concurrent.Callable;
 import java.time.Duration;
 import java.time.Instant;
-
+import java.util.Random;
 import java.util.Scanner;
-import java.util.concurrent.Executor;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 
@@ -182,7 +179,7 @@ public class Ex2_1{
         }
     }/**
         in this function we create a thread pool and run the threads in parallel but in a better way.
-        the thread pool its a queue of threads that run in parallel the threas is assind to a task and
+        the thread pool it's a queue of threads that run in parallel the threas is assind to a task and
         when they are done with the task they go back to the queue and wait for another task.
         the function gets array of files names and return the number of lines in all files.
         in this fubction we use a thread pool , in the first loop we submit a task to every file and
@@ -212,7 +209,7 @@ public class Ex2_1{
 
 
     public static void main(String[] args) {
-      String [] arrSt = createTextFiles(700,10,30000);
+      String [] arrSt = createTextFiles(1000,10,10);
       long start2 = System.currentTimeMillis();
       System.out.println(getNumOfLines(arrSt));
       long end2 = System.currentTimeMillis();
