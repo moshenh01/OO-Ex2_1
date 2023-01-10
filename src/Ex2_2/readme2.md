@@ -1,4 +1,4 @@
-# Object-Oriented Assignment 2 part 1
+# Object-Oriented Assignment 2 part 2
 
 We created a custome thread pool that can get asynchronous tasks with a priority dimention.
 
