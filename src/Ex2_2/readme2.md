@@ -76,7 +76,7 @@ This way we can make sure that the high priority tasks are executed before the l
 ### Diagram
 
 
-<img src="package.png" alt="Logo" width="600" height="800">
+<img src="package.png" alt="Logo" width="900" height="600">
 
 
 
