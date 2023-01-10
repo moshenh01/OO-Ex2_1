@@ -8,14 +8,16 @@ public class Tests {
     @Test
     public void partialTest() {
         CustomExecutor customExecutor = new CustomExecutor();
+        //logger.info(() -> "Current maximum priority = " + customExecutor.getCurrentMax());// *** opt delete
         var task = Task.createTask(() -> {
             int sum = 0;
             for (int i = 1; i <= 10; i++) {
                 sum += i;
             }
             return sum;
-        }, TaskType.IO);  // ***************changed************************ from 1
-        var sumTask = customExecutor.submit(task);
+        }, TaskType.COMPUTATIONAL);  // ***************changed************************ from 1
+        var sumTask = customExecutor.submit(task);//****** add 1 priority
+        //logger.info(() -> "Current maximum priority = " + customExecutor.getCurrentMax());// *** opt delete
         final int sum;
         try {
             sum = sumTask.get(1, TimeUnit.MILLISECONDS);
@@ -30,10 +32,10 @@ public class Tests {
             StringBuilder sb = new StringBuilder("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
             return sb.reverse().toString();
         };
-        // var is used to infer the declared type automatically
+        // var is used to infer the declared type automatically****effect on priority from here
         var priceTask = customExecutor.submit(() -> {
             return 1000 * Math.pow(1.02, 5);
-        }, TaskType.COMPUTATIONAL);
+        }, TaskType.OTHER);//***************changed************************ from 1
         var reverseTask = customExecutor.submit(callable2, TaskType.IO);
         final Double totalPrice;
         final String reversed;

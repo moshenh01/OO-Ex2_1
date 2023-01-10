@@ -1,6 +1,6 @@
 import java.util.concurrent.*;
 
-public class Task <T> extends CustomExecutor implements Comparable<Task<T>>, Callable<T> {
+public class Task <T>  implements Comparable<Task<T>>, Callable<T> {
 
     private TaskType type;
     private Callable<T> callable;
@@ -13,7 +13,7 @@ public class Task <T> extends CustomExecutor implements Comparable<Task<T>>, Cal
     }
 
     private Task(Callable<T> task){
-        this(task, TaskType.COMPUTATIONAL);
+        this(task, TaskType.COMPUTATIONAL);//***************changed************************ from 1
     }
     public static <T> Task<T> createTask(Callable<T> task, TaskType type) {
         return new Task<T>(task, type);
@@ -77,15 +77,20 @@ public class Task <T> extends CustomExecutor implements Comparable<Task<T>>, Cal
      */
     @Override
     public T call() throws Exception {
-
+        //System.out.println(CustomExecutor.getPriorityOne());
+        //System.out.println(getPriorityTwo());
+        //System.out.println(getPriorityThree());
         if(this.type.getPriorityValue() == 1){
-            this.setPriorityOne(getPriorityOne()-1);
+            CustomExecutor.priorityOne--;
+            //CustomExecutor.setPriorityOne(CustomExecutor.getPriorityOne()-1);
         }
         else if(this.type.getPriorityValue() == 2){
-            this.setPriorityTwo(getPriorityTwo()-1);
+            CustomExecutor.priorityTwo--;
+            //CustomExecutor.setPriorityTwo(CustomExecutor.getPriorityTwo()-1);
         }
         else if(this.type.getPriorityValue() == 3){
-            this.setPriorityThree(getPriorityThree()-1);
+            CustomExecutor.priorityThree--;
+            //CustomExecutor.setPriorityThree(CustomExecutor.getPriorityThree()-1);
         }else {
             System.err.println("ERROR in priority value");}
 

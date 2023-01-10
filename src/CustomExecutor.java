@@ -3,9 +3,9 @@ import java.util.concurrent.*;
 public class CustomExecutor extends ThreadPoolExecutor {
 
     private static int corePoolSize = Runtime.getRuntime().availableProcessors();
-    private int priorityOne = 0;
-    private int priorityTwo = 0;
-    private int priorityThree = 0;
+    protected static int priorityOne = 0;
+    protected static int priorityTwo = 0;
+    protected static int priorityThree = 0;
 
 
     public CustomExecutor() {
@@ -24,6 +24,7 @@ public class CustomExecutor extends ThreadPoolExecutor {
         } else {
             System.err.println("ERROR in priority value");
         }
+        //System.out.println("ONE: " + priorityOne + " TWO: " + priorityTwo + " THREE: " + priorityThree);
         subTask(task);
         return task;
     }
@@ -43,7 +44,7 @@ public class CustomExecutor extends ThreadPoolExecutor {
     }
 
     public int getCurrentMax() {
-        System.out.println("ONE: " + priorityOne + " TWO: " + priorityTwo + " THREE: " + priorityThree);
+        //System.out.println("ONE: " + priorityOne + " TWO: " + priorityTwo + " THREE: " + priorityThree);
 
         if (priorityOne > 0) {
             return 1;
@@ -54,7 +55,7 @@ public class CustomExecutor extends ThreadPoolExecutor {
         } else {
             System.out.println("There are no tasks");
         }
-        return -1;
+        return 0;
     }
 
     public void gracefullyTerminate() {
@@ -67,29 +68,35 @@ public class CustomExecutor extends ThreadPoolExecutor {
     }
 
 
-    public int getPriorityOne() {
-        return priorityOne;
-    }
-
-    public void setPriorityOne(int priorityOne) {
-        this.priorityOne = priorityOne;
-    }
-
-    public int getPriorityTwo() {
-        return priorityTwo;
-    }
-
-    public void setPriorityTwo(int priorityTwo) {
-        this.priorityTwo = priorityTwo;
-    }
-
-    public int getPriorityThree() {
-        return priorityThree;
-    }
-
-    public void setPriorityThree(int priorityThree) {
-        this.priorityThree = priorityThree;
-    }
+//    public static int getPriorityOne() {
+//
+//        return priorityOne;
+//    }
+//
+//    public static void setPriorityOne(int priorityOne) {
+//        System.out.println("priority 1 is " + priorityOne);
+//        priorityOne = priorityOne;
+//    }
+//
+//    public static int getPriorityTwo() {
+//
+//        return priorityTwo;
+//    }
+//
+//    public static void setPriorityTwo(int priorityTwo) {
+//        System.out.println("priority 2 is " + priorityTwo);
+//        priorityTwo = priorityTwo;
+//    }
+//
+//    public static int getPriorityThree() {
+//
+//        return priorityThree;
+//    }
+//
+//    public static void setPriorityThree(int priorityThree) {
+//        System.out.println("priority 3 is " + priorityThree);
+//        priorityThree = priorityThree;
+//    }
 
 }
 
